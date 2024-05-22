@@ -20,6 +20,7 @@
                <div class="card" style="width: 100%;">
                 <img src="products/{{$product->image}}" class="card-img-top" alt="...">
                     <div class="card-body">
+                      <h4 class="card-title">${{$product->price}}</h4>
                         <h5 class="card-title">{{$product->name}}</h5>
                         <p class="card-text">{{$product->description}}</p>
                         

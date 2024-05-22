@@ -31,6 +31,7 @@ class ProductControl extends Controller
     $request->validate([
         'name' => 'required',
         'description' => 'required',
+        'price' => 'required',
         'image' => 'required|mimes:jpeq,jpg,png,gif|max:10000'
     ]);
 
@@ -41,6 +42,7 @@ class ProductControl extends Controller
     $product = new product;
     $product->image = $imageName;
     $product->name = $request->name;
+    $product->price = $request->price;    
     $product->description = $request->description;
 
     $product->save();
@@ -60,6 +62,7 @@ public function update(Request $request,$id){
        $request->validate([
          'name' => 'required',
          'description' => 'required',
+         'price' => 'required',
          'image' => 'nullable|mimes:jpeq,jpg,png,gif|max:10000'
      ]);
  
@@ -71,6 +74,8 @@ if(isset($request->image)){
    $request->image->move(public_path('products'), $imageName);
    $product->image = $imageName;
 }
+$product->price = $request->price;    
+
    $product->name = $request->name;
    $product->description = $request->description;
 

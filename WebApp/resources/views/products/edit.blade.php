@@ -43,6 +43,13 @@
                                 <span class="text-danger">{{$errors->first('description')}}</span>
                             @endif   
                             </div>
+                            <div class="form-group mt-3">
+                            <label class="form-label">Product Name</label>
+                            <input type="number"  min="1" placeholder="enter product Price" name="price" class="form-control" value="{{old('price', $product->price )}}">
+                               @if($errors->has('price'))
+                                    <span class="text-danger">{{$errors->first('price')}}</span>
+                                @endif                            
+                        </div> 
                         
                         <div class="form-group mt-3">
                             <label  class="form-label">Image</label>
